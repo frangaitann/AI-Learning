@@ -1,0 +1,21 @@
+SAVING COOKIES WITH: 
+
+
+--SELENIUM
+
+            cookies = driver.get_cookies()
+
+            formatted_cookies = []
+            for i in cookies:
+                formatted_cookies.append({
+                    'domain': i.get('domain'),
+                    'expiry': i.get('expiry'),
+                    'httponly': i.get('httponly'),
+                    'name': i.get('name'),
+                    'path': i.get('path'),
+                    'samesite': i.get('samesite'),
+                    'secure': i.get('secure'),
+                    'value': i.get('value')
+            })
+
+            pickle.dump(formatted_cookies, open("cookies.pkl", "wb"))
